@@ -65,7 +65,7 @@
   </header>
 
   <main class="main">
-    <div class="center-text">
+    <div class="center-text text-blue-500" style="color: #012970">
       Login or Register to access the Todo App
     </div>
   </main>
