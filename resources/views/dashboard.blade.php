@@ -13,17 +13,23 @@
                     <h3 class="text-lg mb-4">Todo List</h3>
 
                     <!-- Show existing Todos -->
-                    <ul>
+                    <ul class="mt-4">
                         @if (session('todos'))
                             @foreach (session('todos') as $key => $todo)
                                 <li class="mb-2">
-                                    {{ $todo }}
+                                    <div class="flex items-center">
+                                        <div style="font-size: 35px; color: rgb(59 130 246);"><i class="fas fa-bookmark text-blue-600 mr-4" ></i></div>
+                                        <div class="ml-4">
+                                    <div class="text-xl font-semibold text-gray-600">{{ $todo }}</div>
+                                    <button class="text-blue-500 text-sm mr-2" onclick="editTodo('{{ $todo }}', '{{ $key }}')">Update</button>
                                     <form action="{{ route('todos.delete', $key) }}" method="POST" style="display:inline;">
                                         @csrf
                                         @method('DELETE')
-                                        <button class="text-red-500">Delete</button>
+                                        <button class="text-red-500 text-sm">Delete</button>
                                     </form>
-                                    <button class="text-blue-500 ml-2" onclick="editTodo('{{ $todo }}', '{{ $key }}')">Edit</button>
+
+                                    </div>
+                                </div>
                                 </li>
                             @endforeach
                         @else
@@ -36,7 +42,7 @@
                         @csrf
                         <input type="text" name="todo" id="todo-input" class="rounded-md border-gray-300" placeholder="Enter Todo" required>
                         <input type="hidden" id="todo-id" name="todo_id">
-                        <button class="bg-blue-500 text-white px-4 py-2 rounded-md">Save</button>
+                        <button class="bg-blue-500 text-white px-4 py-2 rounded-md" style="background-color: rgb(59 130 246);">Save</button>
                     </form>
 
                 </div>
