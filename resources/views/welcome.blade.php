@@ -49,7 +49,7 @@
 
       <a href="#hero" class="logo d-flex align-items-center me-auto">
         <img src="assets/img/logo.png" alt="">
-        <h1 class="sitename">Todo List</h1>
+        <h1 class="sitename">Todo App</h1>
       </a>
 
       @if (Route::has('login'))
